@@ -6,92 +6,6 @@
 
 using namespace std;
 
-class Animal {
-public:
-	virtual void speak() = 0;
-};
-class Cat :public Animal {
-public:
-	void speak() {
-		cout << "cat speak" << endl;
-	}
-};
-
-class Dog :public Animal {
-public:
-	void speak() {
-		cout << "dog speak" << endl;
-	}
-};
-
-void test01(Animal *p) {
-	p->speak();
-}
-void writeTxt() {
-	ofstream ofs;
-	ofs.open("c:\\abcdefg.txt");
-	ofs << "主城列表" << endl;
-	ofs << "暴风城" << endl;
-	ofs << "奥格瑞玛" << endl;
-	ofs << "幽暗城" << endl;
-	ofs << "银月城" << endl;
-	ofs << "铁炉堡" << endl;
-	ofs << "达纳苏斯" << endl;
-	ofs.close();
-}
-
-void loadTxt() {
-	ifstream ifs;
-	ifs.open("c:\\12113213123.txt");
-}
-template <class T>
-void plusaa(T a, T b) {
-	Person<int, int> p(5, 5);
-	p.showPerson();
-	p.showPerson2();
-	system("dir /p");
-	cout << a << b << endl;
-	system("pause");
-}
-
-template <class T1, class T2>
-class Person {
-public:
-	T1 n1;
-	T2 n2;
-	Person(T1 n1, T2 n2) {
-		this->n1 = n1;
-		this->n2 = n2;
-	}
-	void showPerson() {
-		cout << "姓名为1" << this->n1 << endl;
-		cout << "年龄为1" << this->n2 << endl;
-	}
-	void showPerson2();
-};
-template <class T1, class T2>
-void Person<T1, T2>::showPerson2() {
-	cout << "姓名为2" << this->n1 << endl;
-	cout << "年龄为2" << this->n2 << endl;
-}
-BOOL CALLBACK EnumWindowsProc(HWND hwnd, LPARAM lParam)
-{
-	DWORD  pid = 0;
-	GetWindowThreadProcessId(hwnd, &pid);
-	if (pid == GetCurrentProcessId()) // 判断pid
-	{
-		char text[1024];
-		GetWindowTextA(hwnd, (LPSTR)text, 1024); // 必须含有标题文字
-		if (strlen(text) != 0 && IsWindowVisible(hwnd))
-		{
-			// printf("%s\n", text);
-			// targetWindow = hwnd;
-			return FALSE;
-		}
-	}
-	return TRUE;
-}
-
 void changeGame(unsigned long &p1) {
 	HWND gameHwnd = FindWindow(NULL, L"Age of Empires");
 	//gameHwnd = (HWND)2596;
@@ -163,21 +77,9 @@ void changeGame(unsigned long &p1) {
 
 }
 int main() {
-	/*Cat cat;
-	Dog dog;
-
-	writeTxt();
-	test01(&cat);
-	test01(&dog);
-
-	system("pause");*/
-
 	unsigned long  p1 = NULL;
 	changeGame(p1);
 	cout << "资源指针" << (float*)p1 << endl;
-
-
-
 	system("pause");
 	return 0;
 }
